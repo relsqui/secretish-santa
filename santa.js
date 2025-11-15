@@ -68,21 +68,15 @@ function setupNew(newSanta) {
     assignees[name] = encodePadded(assignee, maxNameLength);
     return assignees;
   }, {});
-  // not to be confused with a linked list
-  var linkList = names
-    .map((n) => {
-      return `<li><a href="${makeLink(codesByName[n])}">${n}'s secret link</a></li>`;
-    })
   var textList = names
     .map((n) => {
       return `${n}'s secret link: ${makeLink(codesByName[n])}`;
     })
   var pageParts = [
     "<h1>Secret recipient links</h1>",
-    "<p>Distribute these to the participants without visiting them yourself:<p>",
-    `<ul>${linkList.join("\n")}</ul>`,
-    "<p>Once you leave this page, you won't be able to see the links again.",
-    "You can copy them from here, in case someone loses theirs:</p>",
+    "<p>Distribute these to the participants.<p>",
+    "<p>Once you close the page, this list is gone forever. ",
+    "Consider saving a copy in case someone loses theirs.</p>",
     `<textarea rows='10' cols='100'>${textList.join("\n")}</textarea>`,
     `<p><a href="${location.pathname}">Start over</a></p>`,
   ];
