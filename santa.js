@@ -84,7 +84,7 @@ function setupNew(newSanta) {
     "<p>Once you leave this page, you won't be able to see the links again.",
     "You can copy them from here, in case someone loses theirs:</p>",
     `<textarea rows='10' cols='100'>${textList.join("\n")}</textarea>`,
-    "<p><a href='/'>Start over</a></p>",
+    `<p><a href="${location.pathname}">Start over</a></p>`,
   ];
   setBody(...pageParts);
 }
