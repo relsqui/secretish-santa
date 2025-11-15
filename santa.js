@@ -54,9 +54,8 @@ function encodePadded(data, padTo) {
   return btoa(data);
 }
 
-function makeLink(santaCode, text = "Link") {
-  var url = document.location.pathname + "?s=" + santaCode;
-  return `<a href="${url}">${text}</a>`;
+function makeLink(santaCode) {
+  return document.location.pathname + "?s=" + santaCode;
 }
 
 function setupNew(newSanta) {
@@ -72,14 +71,20 @@ function setupNew(newSanta) {
   // not to be confused with a linked list
   var linkList = names
     .map((n) => {
-      return `<li>${makeLink(codesByName[n], `${n}'s secret link`)}</li>`;
+      return `<li><a href="${makeLink(codesByName[n])}">${n}'s secret link</a></li>`;
     })
-    .join("");
+  var textList = names
+    .map((n) => {
+      return `${n}'s secret link: ${makeLink(codesByName[n])}`;
+    })
   var pageParts = [
-    "<h1>Distribute these links</h1>",
-    "<p>Without clicking on them yourself! (Except yours.)</p>",
-    `<ul>${linkList}</ul>`,
-    "<a href='index.html'>Start over</a>",
+    "<h1>Secret recipient links</h1>",
+    "<p>Distribute these to the participants without visiting them yourself:<p>",
+    `<ul>${linkList.join("\n")}</ul>`,
+    "<p>Once you leave this page, you won't be able to see the links again.",
+    "You can copy them from here, in case someone loses theirs:</p>",
+    `<textarea rows='10' cols='100'>${textList.join("\n")}</textarea>`,
+    "<p><a href='index.html'>Start over</a></p>",
   ];
   setBody(...pageParts);
 }
