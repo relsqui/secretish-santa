@@ -55,7 +55,7 @@ function encodePadded(data, padTo) {
 }
 
 function makeLink(santaCode) {
-  return document.location.pathname + "?s=" + santaCode;
+  return location.origin + location.pathname + "?s=" + santaCode;
 }
 
 function setupNew(newSanta) {
