@@ -4,6 +4,13 @@ A very simple recipient assigner for randomized anonymous gift-giving.
 
 You can use it here: https://relsqui.github.io/secretish-santa/
 
+<img alt="image" src="https://github.com/user-attachments/assets/277336eb-7a61-4f25-b321-2084a9676e00" width="30%" />
+<img alt="image" src="https://github.com/user-attachments/assets/94487d0f-e75d-4e16-9d59-d32876106d5b" width="30%" />
+<img alt="image" src="https://github.com/user-attachments/assets/c30879b1-ff7d-40ae-9e1d-ccf971f80969" width="30%" />
+
+
+
+
 ## Features
 
 - The organizer doesn't have to see the matches, so they can participate without ruining the surprise.
