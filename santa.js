@@ -1,5 +1,7 @@
 function setBody(...s) {
-  document.body.innerHTML = s.join("");
+  // surely if you can trust your friends with your mailing address
+  // you can trust them to set your innerHTML
+  document.body.innerHTML = s.join("\n");
 }
 
 function isDigit(c) {
@@ -37,6 +39,7 @@ function shuffle(a) {
 }
 
 function encodePadded(data, padTo) {
+  // pad the names before encoding so you can't guess recipients from link length
   var padding = "";
   if (data.length < padTo) {
     if (isDigit(data[0])) {
@@ -64,7 +67,6 @@ function setupNew(newSanta) {
   var shuffledNames = shuffle(names.slice());
   var codesByName = shuffledNames.reduce((assignees, name, i) => {
     var assignee = shuffledNames[(i + 1) % shuffledNames.length];
-    // pad the names before encoding so you can't guess from link length
     assignees[name] = encodePadded(assignee, maxNameLength);
     return assignees;
   }, {});
